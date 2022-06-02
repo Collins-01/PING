@@ -1,0 +1,32 @@
+import 'dart:convert';
+import 'dart:developer';
+
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:ping/Core/Models/user_model.dart';
+
+class AuthService {
+  AuthService._();
+  static final AuthService _instance = AuthService._();
+  factory AuthService() => _instance;
+
+  static User? _user;
+  static User? get user => _user;
+  static const FlutterSecureStorage _secureStorage = FlutterSecureStorage();
+  static signIn(User user) async {
+    _user = user;
+    await _secureStorage.write(
+      key: 'user',
+      value: jsonEncode(
+        user.toJson(),
+      ),
+    );
+  }
+
+  static onAppLoad() async {
+    var res = await _secureStorage.read(key: 'user');
+    log(res.toString());
+    if (res != null) {
+      _user = jsonDecode(res);
+    }
+  }
+}
