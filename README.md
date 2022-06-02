@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-A simple Peer to Peer chat application that makes use of Socket.io to sending messages, and Reactive SQLLite to store message
+A simple Peer to Peer chat application that makes use of Socket.io for sending messages, and Reactive SQLLite for storing messages Locally.
 
 <!-- A few resources to get you started if this is your first Flutter project:
 
