@@ -26,7 +26,8 @@ class AuthService {
     var res = await _secureStorage.read(key: 'user');
     log(res.toString());
     if (res != null) {
-      _user = jsonDecode(res);
+      final decodedData = jsonDecode(res);
+      _user = User.fromJson(decodedData);
     }
   }
 }

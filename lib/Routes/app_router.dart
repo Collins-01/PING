@@ -4,6 +4,7 @@ import 'package:ping/Routes/navigator_routes.dart';
 import 'package:ping/UIs/home/chat_view.dart';
 import 'package:ping/UIs/home/messages_view.dart';
 import 'package:ping/UIs/onboarding/sign_in_view.dart';
+import 'package:ping/UIs/onboarding/verification_view.dart';
 
 class AppRouter {
   static PageRoute _getPageRoute(
@@ -32,9 +33,15 @@ class AppRouter {
       // * Messages View
       case NavigatorRoutes.messagesView:
         return _getPageRoute(const MessagesView());
+      case NavigatorRoutes.verificationView:
+        return _getPageRoute(const VerificationView());
 
       default:
-        return _getPageRoute(const Scaffold());
+        return _getPageRoute(Scaffold(
+          body: Center(
+            child: Text("No routes defined for ${settings.name}"),
+          ),
+        ));
     }
   }
 }

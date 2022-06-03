@@ -7,6 +7,7 @@ import 'package:ping/Core/Services/socket_service.dart';
 import 'package:ping/Core/Storage/contacts_db.dart';
 import 'package:ping/Core/Storage/messages_db.dart';
 import 'package:ping/UIs/home/chat_view.dart';
+import 'package:ping/Utils/app_colors.dart';
 
 class MessagesView extends StatefulWidget {
   const MessagesView({Key? key}) : super(key: key);
@@ -68,6 +69,7 @@ class _MessagesViewState extends State<MessagesView> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.primaryColor,
         onPressed: () {
           final Faker _faker = Faker();
           final contact = Contact(
