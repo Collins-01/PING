@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ping/Core/Models/contact_model.dart';
 import 'package:ping/Routes/navigator_routes.dart';
 import 'package:ping/UIs/home/chat_view.dart';
+import 'package:ping/UIs/home/contacts_view.dart';
 import 'package:ping/UIs/home/messages_view.dart';
 import 'package:ping/UIs/onboarding/sign_in_view.dart';
 import 'package:ping/UIs/onboarding/verification_view.dart';
@@ -35,7 +36,8 @@ class AppRouter {
         return _getPageRoute(const MessagesView());
       case NavigatorRoutes.verificationView:
         return _getPageRoute(const VerificationView());
-
+      case NavigatorRoutes.contactsView:
+        return _getPageRoute(const ContactsView());
       default:
         return _getPageRoute(Scaffold(
           body: Center(

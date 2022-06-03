@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ping/Core/Services/navigation_service.dart';
 import 'package:ping/Routes/app_router.dart';
+import 'package:ping/UIs/home/messages_view.dart';
 import 'package:ping/UIs/onboarding/sign_in_view.dart';
 // import 'package:firebase_core/firebase_core.dart';
 // import 'firebase_options.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       navigatorKey: NavigationService.instance.navigatorKey,
       onGenerateRoute: AppRouter.generateRoutes,
       theme: AppThemeData.lightThemeData,
-      home: const SignInView(),
+      home: const MessagesView(),
     );
   }
 }

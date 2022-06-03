@@ -5,4 +5,5 @@ class NavigatorRoutes {
   static const String chatView = "/chatView";
   static const registerView = "/registerView";
   static const verificationView = "/verificationView";
+  static const String contactsView = "/contactsView";
 }
