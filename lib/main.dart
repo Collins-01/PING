@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ping/UIs/home/messages_view.dart';
+
 import 'package:ping/UIs/onboarding/splash_screen.dart';
+import 'package:ping/locator.dart';
 
 void main() {
+  setUpLocator();
   runApp(const MyApp());
 }
 
