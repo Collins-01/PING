@@ -14,7 +14,7 @@ class AppRouter {
     return MaterialPageRoute(builder: (context) => viewToShow);
   }
 
-  generateRoutes(RouteSettings settings) {
+  static Route<dynamic> generateRoutes(RouteSettings settings) {
     switch (settings.name) {
       //* SignIN View
       case NavigatorRoutes.signInView:
