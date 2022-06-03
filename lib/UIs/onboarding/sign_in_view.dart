@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ping/UIs/onboarding/viewmodels/signIn_viewmodel.dart';
+import 'package:ping/Widgets/app_text.dart';
 import 'package:stacked/stacked.dart';
 import '../../Extensions/context.dart' show IContext;
 // import 'package:ping/Core/Models/user_model.dart';
@@ -25,12 +26,14 @@ class SignInView extends StatelessWidget {
                 const SizedBox(
                   height: 60,
                 ),
-                const Text("Welcome"),
+                AppText.heading4R("Welcome"),
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
-                    "Please fill in your mobile number to\nGet Started!"),
+                AppText.heading3SB(
+                  "Please fill in your mobile number to Get Started!",
+                  maxlines: 3,
+                ),
                 SizedBox(
                   height: context.deviceHeight / 5,
                 ),

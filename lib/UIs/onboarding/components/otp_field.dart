@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class OTPField extends StatelessWidget {
-  const OTPField({Key? key}) : super(key: key);
+  final TextEditingController controller;
+  Function(String)? onChanged;
+  // final FocusNode focusNode;
+  OTPField({
+    Key? key,
+    required this.controller,
+    required this.onChanged,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +18,16 @@ class OTPField extends StatelessWidget {
       width: 50,
       alignment: Alignment.center,
       child: TextFormField(
+        controller: controller,
+        onChanged: onChanged,
+        textAlign: TextAlign.center,
+        // focusNode: focusNode,
         obscureText: true,
         obscuringCharacter: "*",
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(1),
+          FilteringTextInputFormatter.digitsOnly,
+        ],
         style: const TextStyle(fontSize: 28),
         decoration: const InputDecoration(
           border: InputBorder.none,

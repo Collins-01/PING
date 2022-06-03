@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:ping/UIs/onboarding/components/otp_field.dart';
 import 'package:ping/UIs/onboarding/viewmodels/verification_viewmodel.dart';
 import 'package:ping/Utils/app_colors.dart';
+import 'package:ping/Utils/app_text_styles.dart';
+import 'package:ping/Widgets/app_text.dart';
 import 'package:stacked/stacked.dart';
 import '../../Extensions/context.dart' show IContext;
 
@@ -21,57 +25,65 @@ class VerificationView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(
-                        height: 60,
+                        height: 10,
                       ),
-                      const Text("Verification"),
+                      InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: const Icon(
+                            Icons.arrow_back_ios,
+                          )),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      AppText.heading4R("Verification"),
                       const SizedBox(
                         height: 20,
                       ),
-                      const Text("We sent you an sms code"),
+                      AppText.heading3SB("We sent you an sms code"),
                       Text.rich(
-                        TextSpan(text: "On number : ", children: [
-                          TextSpan(
-                              text: "+234 8163 509 379",
-                              style: TextStyle(
-                                color: AppColors.primaryColor,
-                              ))
-                        ]),
+                        TextSpan(
+                            text: "On number : ",
+                            style: textFieldSemiBoldStyle,
+                            children: [
+                              TextSpan(
+                                text: "+234 8163 509 379",
+                                style: textFieldSemiBoldStyle.copyWith(
+                                  color: AppColors.primaryColor,
+                                ),
+                              )
+                            ]),
                       ),
                       // const Spacer(),
+                      const SizedBox(
+                        height: 60,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: List.generate(
-                          4,
-                          (index) => const OTPField(),
-                        ),
-                      ),
-                      Expanded(
-                        child: GridView(
-                          physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
+                          model.otpInfo.length,
+                          (index) => OTPField(
+                            onChanged: (value) {
+                              if (value.length == 1) {
+                                FocusScope.of(context).nextFocus();
+                                // FocusScope.of(context).previousFocus();
+                              }
+                            },
+                            controller: model.otpInfo[index].controller,
                           ),
-                          children: [
-                            ...List.generate(
-                              model.numbers.length,
-                              (index) => TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  model.numbers[index].toString(),
-                                ),
-                              ),
-                            )
-                          ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      Center(
-                        child: TextButton(
-                          onPressed: () {},
-                          child: const Text('0'),
+
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: context.deviceHeight / 10),
+                        child: Center(
+                          child: InkWell(
+                            onTap: () {},
+                            child: AppText.textFieldM(
+                              "Didn't get a code?",
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
                         ),
                       ),
                     ],

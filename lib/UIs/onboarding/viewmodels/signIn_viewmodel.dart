@@ -6,7 +6,6 @@ class SignInViewModel extends BaseViewModel {
   final NavigationService _navigationService = NavigationService.instance;
 
   toVerificationView() async {
-    await _navigationService
-        .navigateToNewRoute(NavigatorRoutes.verificationView);
+    await _navigationService.navigateTo(NavigatorRoutes.verificationView);
   }
 }
