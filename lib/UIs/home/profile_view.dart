@@ -48,6 +48,11 @@ class ProfileView extends StatelessWidget {
               ],
             ),
           ),
+          ListTile(
+            onTap: () => AuthService.logOut(),
+            leading: const Icon(Icons.cancel),
+            title: AppText.heading6SB("Log Out"),
+          )
         ],
       ),
     );

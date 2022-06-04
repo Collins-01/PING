@@ -1,4 +1,3 @@
-import 'package:chat_bubbles/bubbles/bubble_normal_audio.dart';
 import 'package:chat_bubbles/bubbles/bubble_special_three.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -146,7 +145,7 @@ class _ChatViewState extends State<ChatView> {
                           Message message = Message(
                             id: DateTime.now().millisecondsSinceEpoch,
                             msg: controller.text.trim(),
-                            reciverId: 1654183960157,
+                            reciverId: AuthService.user!.id,
                             senderId: AuthService.user!.id,
                             sentAt: DateTime.now(),
                           );
