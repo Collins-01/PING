@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       navigatorKey: NavigationService.instance.navigatorKey,
       onGenerateRoute: AppRouter.generateRoutes,
       theme: AppThemeData.lightThemeData,
-      home: const MessagesView(),
+      home: const SplashScreen(),
     );
   }
 }

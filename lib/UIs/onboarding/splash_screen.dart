@@ -3,6 +3,7 @@ import 'package:ping/Core/Services/auth_service.dart';
 import 'package:ping/UIs/home/messages_view.dart';
 import 'package:ping/UIs/onboarding/sign_in_view.dart';
 import 'package:ping/Utils/app_colors.dart';
+import 'package:ping/Widgets/app_text.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -35,8 +36,11 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      body: const Center(
-        child: Text("Loading...."),
+      body: Center(
+        child: AppText.heading1SB(
+          "PING",
+          color: Colors.white,
+        ),
       ),
     );
   }

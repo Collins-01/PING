@@ -7,4 +7,8 @@ class MessagesViewModel extends BaseViewModel {
   toContactsView() async {
     await _navigationService.navigateTo(NavigatorRoutes.contactsView);
   }
+
+  toProfileView() async {
+    await _navigationService.navigateTo(NavigatorRoutes.profileView);
+  }
 }

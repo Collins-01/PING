@@ -34,10 +34,6 @@ class _MessagesViewState extends State<MessagesView> {
       viewModelBuilder: () => MessagesViewModel(),
       builder: (_, model, child) {
         return Scaffold(
-          // appBar: AppBar(
-          //   title: Text(AuthService.user!.username),
-          // ),
-
           body: SafeArea(
             child: Column(
               children: [
@@ -45,8 +41,37 @@ class _MessagesViewState extends State<MessagesView> {
                   padding: const EdgeInsets.only(left: 24),
                   child: Row(
                     children: [
-                      const CircleAvatar(
-                        radius: 22,
+                      InkWell(
+                        onTap: () {
+                          model.toProfileView();
+                          // showModalBottomSheet(
+                          //   context: context,
+                          //   builder: (_) => Container(
+                          //     child: Column(
+                          //       children: [
+                          //         const SizedBox(
+                          //           height: 20,
+                          //         ),
+                          //         Stack(
+                          //           fit: StackFit.loose,
+                          //           clipBehavior: Clip.hardEdge,
+                          //           alignment: Alignment.bottomRight,
+                          //           children: const [
+                          //             CircleAvatar(
+                          //               radius: 50,
+                          //               backgroundColor: Colors.blue,
+                          //             ),
+                          //             Icon(Icons.camera_alt)
+                          //           ],
+                          //         )
+                          //       ],
+                          //     ),
+                          //   ),
+                          // );
+                        },
+                        child: const CircleAvatar(
+                          radius: 22,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,

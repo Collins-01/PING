@@ -4,6 +4,7 @@ import 'package:ping/Routes/navigator_routes.dart';
 import 'package:ping/UIs/home/chat_view.dart';
 import 'package:ping/UIs/home/contacts_view.dart';
 import 'package:ping/UIs/home/messages_view.dart';
+import 'package:ping/UIs/home/profile_view.dart';
 import 'package:ping/UIs/onboarding/sign_in_view.dart';
 import 'package:ping/UIs/onboarding/verification_view.dart';
 
@@ -38,6 +39,10 @@ class AppRouter {
         return _getPageRoute(const VerificationView());
       case NavigatorRoutes.contactsView:
         return _getPageRoute(const ContactsView());
+      case NavigatorRoutes.profileView:
+        return _getPageRoute(
+          const ProfileView(),
+        );
       default:
         return _getPageRoute(Scaffold(
           body: Center(
