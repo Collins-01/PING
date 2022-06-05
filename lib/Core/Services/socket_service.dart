@@ -39,6 +39,20 @@ class SocketService {
       _messagesDB.onRecieveNewMessage(message);
       log("Recived Message:   ${message.toJson()}");
     });
+
+    socket.on('message_sent', (data) async {
+      await _messagesDB.updateMessageStatus(
+        data['id'],
+        "Sent".toUpperCase(),
+      );
+    });
+
+    socket.on('message_delivered', (data) async {
+      await _messagesDB.updateMessageStatus(
+        data['id'],
+        "Delivered".toUpperCase(),
+      );
+    });
   }
 
   sendMessage(Message message) {

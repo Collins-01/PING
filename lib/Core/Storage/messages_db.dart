@@ -77,4 +77,9 @@ class MessagesDB {
     //you can trigger notifications here
     return id != -1;
   }
+
+  Future<void> updateMessageStatus(int id, String status) async {
+    final db = await _dbFuture;
+    // await db.u
+  }
 }

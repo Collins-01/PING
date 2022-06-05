@@ -1,22 +1,15 @@
+// ignore_for_file: missing_required_param
+
 import 'package:flutter/material.dart';
 import 'package:ping/Core/Services/navigation_service.dart';
 import 'package:ping/Routes/app_router.dart';
-import 'package:ping/UIs/home/messages_view.dart';
-import 'package:ping/UIs/onboarding/sign_in_view.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'firebase_options.dart';
+
 import 'package:ping/UIs/onboarding/splash_screen.dart';
 import 'package:ping/Utils/app_theme.dart';
 import 'package:ping/locator.dart';
 
-void main() {
+void main() async {
   setUpLocator();
-
-// ...
-
-// await Firebase.initializeApp(
-//     options: DefaultFirebaseOptions.currentPlatform,
-// );
   runApp(const MyApp());
 }
 
