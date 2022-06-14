@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:ping/Core/Models/message_model.dart';
@@ -10,6 +11,8 @@ class SocketService {
   final MessagesDB _messagesDB = MessagesDB();
   static final SocketService _instance = SocketService._();
   factory SocketService() => _instance;
+  StreamController<String> _lastSeenController = StreamController.broadcast();
+  StreamController<String> get lastSeenController => _lastSeenController;
   late Socket socket;
   initSocket() async {
     socket = io('http://localhost:3000', <String, dynamic>{
@@ -52,6 +55,9 @@ class SocketService {
         data['id'],
         "Delivered".toUpperCase(),
       );
+    });
+    socket.on('last_seen', (data) async {
+      _lastSeenController.sink.add(data);
     });
   }
 

@@ -7,8 +7,14 @@ import 'package:ping/Routes/app_router.dart';
 import 'package:ping/UIs/onboarding/splash_screen.dart';
 import 'package:ping/Utils/app_theme.dart';
 import 'package:ping/locator.dart';
+// import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
+  // await FirebaseApp.configure(
+  //   name: 'ping',
+  //   options: FirebaseOptions(),
+  // );
+
   setUpLocator();
   runApp(const MyApp());
 }

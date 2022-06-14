@@ -10,7 +10,7 @@ Future<Database> _init() async {
   final Database db = await openDatabase(
     'contacts_database.db',
     onCreate: (db, version) => db.execute(
-      'CREATE TABLE ${DbKeys.contacts}(id INTEGER PRIMARY KEY, username TEXT)',
+      'CREATE TABLE ${DbKeys.contacts}(id INTEGER PRIMARY KEY, username TEXT, phone TEXT, bio TEXT, avatar TEXT)',
     ),
     version: 1,
   );

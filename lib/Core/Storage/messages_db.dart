@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
@@ -30,7 +31,9 @@ class MessagesDB {
   factory MessagesDB() => _instance;
   final _dbFuture = _init()
       .then((db) => BriteDatabase(db, logger: kReleaseMode ? null : print));
-
+  final StreamController<Message> messagesController =
+      StreamController.broadcast();
+  // final StreamSubscription _streamSubscription;
   Stream<List<Message>> getAllMessages() async* {
     final db = await _dbFuture;
     yield* db
